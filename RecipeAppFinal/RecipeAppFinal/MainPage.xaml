@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecipeAppFinal.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem StyleId="Test" Text="Add" Clicked="OnAddButtonClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <ListView x:Name="RecipesListView" IsPullToRefreshEnabled="False" 
+                  HorizontalOptions="FillAndExpand" SelectionMode="Single" 
+                  ItemSelected="OnRecipeSelected" HasUnevenRows="True"
+                  Margin="5" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="0,5,0,5" Spacing="0" BackgroundColor="AntiqueWhite">
+                            <Label Text="{Binding Title}" FontSize="28" TextColor="Black"/>
+                            <Label Text="{Binding Creator, StringFormat='By {0}'}" FontSize="15" TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
